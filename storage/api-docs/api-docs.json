@@ -1,0 +1,61 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "RP Vespera API Documentation",
+        "description": "API documentation for RP Vespera project",
+        "contact": {
+            "email": "your-email@example.com"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8000",
+            "description": "Local Development Server"
+        },
+        {
+            "url": "https://your-production-domain.com",
+            "description": "Production Server"
+        }
+    ],
+    "paths": {
+        "/test": {
+            "get": {
+                "tags": [
+                    "BILLING"
+                ],
+                "summary": "Swagger test endpoint",
+                "operationId": "42876c94c21259b1e2eaacc3ce88435b",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/indexTest": {
+            "get": {
+                "tags": [
+                    "Test"
+                ],
+                "summary": "Swagger test endpoint",
+                "operationId": "d4170234ad310bfc5449a50d6599204f",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "BILLING",
+            "description": "BILLING"
+        },
+        {
+            "name": "Test",
+            "description": "Test"
+        }
+    ]
+}
