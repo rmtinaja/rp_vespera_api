@@ -1,0 +1,50 @@
+name: Deploy Laravel API to Staging
+
+on:
+  push:
+    branches:
+      - api-staging
+
+jobs:
+  deploy:
+    name: Deploy to API Staging
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: |
+          composer install --no-dev --optimize-autoloader
+          php artisan config:cache
+          php artisan route:cache
+          php artisan view:cache
+
+      - name: Upload via FTP (Staging)
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.STAGING_SERVER }}
+          username: ${{ secrets.STAGING_USER }}
+          password: ${{ secrets.STAGING_PASS }}
+          port: 21
+          protocol: ftp
+          local-dir: ./
+          server-dir: ${{ secrets.FTP_STAGING_PATH }}
+
+          exclude: |
+            **/vendor/**
+            vendor/**
+            /vendor/**
+            node_modules/**
+            .git/**
+            .github/**
+            storage/logs/**
+            storage/framework/cache/data/**
+            .env
+            .env.*
+            .DS_Store
+            Thumbs.db
+            *.log
+      - name: Done
+        run: echo "Staging API deployed successfully."
