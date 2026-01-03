@@ -23,8 +23,11 @@ class Issues extends Model
         'date_start',
         'date_hold',
         'date_complete',
+        'date_resume',
         'is_active',
         'created_by',
         'date_created',
+        'ticket_status',
+        'ticket_no',
     ];
 }

@@ -14,6 +14,9 @@ class CreateIssuesDTO
         public ?string $date_start,
         public ?string $date_hold,
         public ?string $date_complete,
+        public ?string $ticket_no,
+        public ?string $ticket_status,
+        public ?string $date_resume,
         public int $created_by,
     ) {}
 }

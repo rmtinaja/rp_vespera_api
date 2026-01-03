@@ -26,10 +26,13 @@ class IssuesController extends Controller
             'concern_description' => 'required|string',
             'assignee_id'         => 'required|integer',
             'status_priority'     => 'required|string',
+            'ticket_status'       => 'required|string',
+            'ticket_no'           => 'required|string',
             'date_issues'         => 'nullable|date',
             'date_start'          => 'nullable|date',
             'date_hold'           => 'nullable|date',
             'date_complete'       => 'nullable|date',
+            'date_resume'         => 'nullable|date',
         ]);
 
         return response()->json(

@@ -5,7 +5,7 @@ use App\Domain\Issues\Models\Issues;
 use App\Domain\Issues\DTO\CreateIssuesDTO;
 class IssuesRepository
 {
-   public function getAll()
+    public function getAll()
     {
         return Issues::where('is_active', true)->get();
     }
@@ -27,6 +27,9 @@ class IssuesRepository
             'date_start'          => $dto->date_start,
             'date_hold'           => $dto->date_hold,
             'date_complete'       => $dto->date_complete,
+            'ticket_no'           => $dto->date_complete,
+            'date_resume'         => $dto->date_complete,
+            'ticket_status'       => $dto->date_complete,
             'created_by'          => $dto->created_by,
             'date_created'        => now(),
         ]);

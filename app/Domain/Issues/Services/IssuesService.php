@@ -30,6 +30,9 @@ class IssuesService
             date_start: $data['date_start'] ?? null,
             date_hold: $data['date_hold'] ?? null,
             date_complete: $data['date_complete'] ?? null,
+            date_resume: $data['date_resume'] ?? null,
+            ticket_status: $data['ticket_status'] ?? null,
+            ticket_no: $data['ticket_no'] ?? null,
             created_by:1,
         );
 
