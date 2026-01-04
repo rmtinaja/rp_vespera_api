@@ -14,7 +14,10 @@ Route::prefix('v1')->group(function () {
 Route::prefix('v1')->middleware('auth:sanctum')->group(function () {
     
 });
-Route::apiResource('issues', IssuesController::class);
+Route::get('issues', [IssuesController::class ,'index']);
+Route::post('issues/store', [IssuesController::class , 'store']);
+Route::put('issues/updateissues', [IssuesController::class , 'update']);
+Route::delete('issues/removeissues', [IssuesController::class , 'destroy']);
 Route::get('/user', [AuthController::class, 'user']);
 Route::post('/logout', [AuthController::class, 'logout']);
 Route::post('/logout-all', [AuthController::class, 'logoutAll']);
