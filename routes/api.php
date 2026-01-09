@@ -2,6 +2,7 @@
 
 use App\Domain\AutomationDashboard\Models\AutomationDashboard;
 use App\Http\Controllers\Api\V1\AuthController;
+use App\Http\Controllers\Api\V1\AutoForfeitureController;
 use App\Http\Controllers\Api\V1\AutomationDashboardController;
 use App\Http\Controllers\Api\V1\BillingController;
 use App\Http\Controllers\Api\V1\ConversationController;
@@ -40,3 +41,10 @@ Route::get('/test', [TestController::class, 'indexTest']);
 Route::get('/test1', [BillingController::class, 'index']);
 Route::get('/test2', [BillingController::class, 'index1']);
 Route::get('/test3', [BillingController::class, 'index2']);
+
+
+Route::get('/readsheet', [AutoForfeitureController::class, 'readGoogleSheet']);
+Route::get('/forfeiture', [AutoForfeitureController::class, 'getAgedData']);
+Route::post('/saveDocTReference', [AutoForfeitureController::class, 'saveToDocTReference']);
+Route::post('/saveToForfeiture', [AutoForfeitureController::class, 'saveToForfeiture']);
+Route::post('/saveToForfeitureLine', [AutoForfeitureController::class, 'saveToForfeitureLine']);

@@ -62,6 +62,21 @@ return [
                 (PHP_VERSION_ID >= 80500 ? \Pdo\Mysql::ATTR_SSL_CA : \PDO::MYSQL_ATTR_SSL_CA) => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
         ],
+        'mysql_secondary' => [
+            'driver' => 'mysql',
+            'host' => env('DB2_HOST', '10.7.7.232'),
+            'port' => env('DB2_PORT', '3309'),
+            'database' => env('DB2_DATABASE', 'saerp_vrc_replica'),
+            'username' => env('DB2_USERNAME', 'rmtinaja'),
+            'password' => env('DB2_PASSWORD', 'rmtinaja'),
+            'unix_socket' => env('DB2_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' => false,
+            'engine' => null,
+        ],
+
 
         'mariadb' => [
             'driver' => 'mariadb',
@@ -148,7 +163,7 @@ return [
 
         'options' => [
             'cluster' => env('REDIS_CLUSTER', 'redis'),
-            'prefix' => env('REDIS_PREFIX', Str::slug((string) env('APP_NAME', 'laravel')).'-database-'),
+            'prefix' => env('REDIS_PREFIX', Str::slug((string) env('APP_NAME', 'laravel')) . '-database-'),
             'persistent' => env('REDIS_PERSISTENT', false),
         ],
 
